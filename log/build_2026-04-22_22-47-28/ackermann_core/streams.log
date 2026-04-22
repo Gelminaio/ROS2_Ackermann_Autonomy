@@ -1,0 +1,55 @@
+[3.452s] Invoking command in '/home/pietro/ackermann_ws/build/ackermann_core': PYTHONPATH=/home/pietro/ackermann_ws/build/ackermann_core/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/pietro/ackermann_ws/build/ackermann_core/build
+[4.779s] running develop
+[5.699s] Removing /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann-core.egg-link (link to .)
+[5.850s] Invoked command in '/home/pietro/ackermann_ws/build/ackermann_core' returned '0': PYTHONPATH=/home/pietro/ackermann_ws/build/ackermann_core/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/pietro/ackermann_ws/build/ackermann_core/build
+[5.856s] Invoking command in '/home/pietro/ackermann_ws/src/ackermann_core': PYTHONPATH=/home/pietro/ackermann_ws/build/ackermann_core/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ackermann_core build --build-base /home/pietro/ackermann_ws/build/ackermann_core/build install --record /home/pietro/ackermann_ws/build/ackermann_core/install.log --single-version-externally-managed install_data --force
+[6.962s] running egg_info
+[7.038s] writing ../../build/ackermann_core/ackermann_core.egg-info/PKG-INFO
+[7.039s] writing dependency_links to ../../build/ackermann_core/ackermann_core.egg-info/dependency_links.txt
+[7.046s] writing entry points to ../../build/ackermann_core/ackermann_core.egg-info/entry_points.txt
+[7.047s] writing requirements to ../../build/ackermann_core/ackermann_core.egg-info/requires.txt
+[7.048s] writing top-level names to ../../build/ackermann_core/ackermann_core.egg-info/top_level.txt
+[7.214s] reading manifest file '../../build/ackermann_core/ackermann_core.egg-info/SOURCES.txt'
+[7.217s] writing manifest file '../../build/ackermann_core/ackermann_core.egg-info/SOURCES.txt'
+[7.218s] running build
+[7.219s] running build_py
+[7.219s] creating /home/pietro/ackermann_ws/build/ackermann_core/build
+[7.220s] creating /home/pietro/ackermann_ws/build/ackermann_core/build/lib
+[7.221s] creating /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core
+[7.221s] copying ackermann_core/base_node.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core
+[7.222s] copying ackermann_core/__init__.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core
+[7.222s] creating /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/hardware
+[7.223s] copying ackermann_core/hardware/__init__.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/hardware
+[7.224s] copying ackermann_core/hardware/ackermann_hal.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/hardware
+[7.225s] creating /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/tools
+[7.226s] copying ackermann_core/tools/encoder_scanner.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/tools
+[7.226s] copying ackermann_core/tools/__init__.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/tools
+[7.227s] copying ackermann_core/tools/steering_calibration.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/tools
+[7.229s] running install
+[7.255s] running install_lib
+[7.333s] creating /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core
+[7.333s] creating /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/hardware
+[7.334s] copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/hardware/__init__.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/hardware
+[7.335s] copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/hardware/ackermann_hal.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/hardware
+[7.336s] copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/base_node.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core
+[7.337s] copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/__init__.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core
+[7.338s] creating /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/tools
+[7.339s] copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/tools/encoder_scanner.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/tools
+[7.340s] copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/tools/__init__.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/tools
+[7.341s] copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/tools/steering_calibration.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/tools
+[7.343s] byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/hardware/__init__.py to __init__.cpython-312.pyc
+[7.345s] byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/hardware/ackermann_hal.py to ackermann_hal.cpython-312.pyc
+[7.353s] byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/base_node.py to base_node.cpython-312.pyc
+[7.357s] byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/__init__.py to __init__.cpython-312.pyc
+[7.359s] byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/tools/encoder_scanner.py to encoder_scanner.cpython-312.pyc
+[7.361s] byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/tools/__init__.py to __init__.cpython-312.pyc
+[7.362s] byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/tools/steering_calibration.py to steering_calibration.cpython-312.pyc
+[7.366s] running install_data
+[7.367s] copying resource/ackermann_core -> /home/pietro/ackermann_ws/install/ackermann_core/share/ament_index/resource_index/packages
+[7.368s] copying package.xml -> /home/pietro/ackermann_ws/install/ackermann_core/share/ackermann_core
+[7.368s] running install_egg_info
+[7.456s] Copying ../../build/ackermann_core/ackermann_core.egg-info to /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core-0.0.0-py3.12.egg-info
+[7.462s] running install_scripts
+[8.082s] Installing base_node script to /home/pietro/ackermann_ws/install/ackermann_core/lib/ackermann_core
+[8.085s] writing list of installed files to '/home/pietro/ackermann_ws/build/ackermann_core/install.log'
+[8.226s] Invoked command in '/home/pietro/ackermann_ws/src/ackermann_core' returned '0': PYTHONPATH=/home/pietro/ackermann_ws/build/ackermann_core/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ackermann_core build --build-base /home/pietro/ackermann_ws/build/ackermann_core/build install --record /home/pietro/ackermann_ws/build/ackermann_core/install.log --single-version-externally-managed install_data --force

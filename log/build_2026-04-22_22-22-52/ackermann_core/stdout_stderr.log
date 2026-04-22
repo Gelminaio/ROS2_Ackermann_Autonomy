@@ -1,0 +1,22 @@
+running develop
+running egg_info
+creating ackermann_core.egg-info
+writing ackermann_core.egg-info/PKG-INFO
+writing dependency_links to ackermann_core.egg-info/dependency_links.txt
+writing entry points to ackermann_core.egg-info/entry_points.txt
+writing requirements to ackermann_core.egg-info/requires.txt
+writing top-level names to ackermann_core.egg-info/top_level.txt
+writing manifest file 'ackermann_core.egg-info/SOURCES.txt'
+reading manifest file 'ackermann_core.egg-info/SOURCES.txt'
+writing manifest file 'ackermann_core.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann-core.egg-link (link to .)
+Installing base_node script to /home/pietro/ackermann_ws/install/ackermann_core/lib/ackermann_core
+
+Installed /home/pietro/ackermann_ws/build/ackermann_core
+running symlink_data
+creating /home/pietro/ackermann_ws/install/ackermann_core/share/ament_index
+creating /home/pietro/ackermann_ws/install/ackermann_core/share/ament_index/resource_index
+creating /home/pietro/ackermann_ws/install/ackermann_core/share/ament_index/resource_index/packages
+symbolically linking /home/pietro/ackermann_ws/build/ackermann_core/resource/ackermann_core -> /home/pietro/ackermann_ws/install/ackermann_core/share/ament_index/resource_index/packages
+symbolically linking /home/pietro/ackermann_ws/build/ackermann_core/package.xml -> /home/pietro/ackermann_ws/install/ackermann_core/share/ackermann_core

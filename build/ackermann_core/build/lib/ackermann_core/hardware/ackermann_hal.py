@@ -19,8 +19,9 @@ LEFT_KICK = 30
 RIGHT_KICK = -100
 TICKS_PER_METER = 6270.0
 LOOP_PERIOD_S = 0.02
-STEER_STEP_PWM = 30
+STEER_STEP_PWM = 500
 KICK_HOLD_S = 0.08
+MAX_STEERING_OFFSET = 350
 
 current_pwm = CENTER_PWM
 steer_target_pwm = CENTER_PWM
@@ -28,6 +29,10 @@ steer_primary_target = CENTER_PWM
 steer_apply_kick = False
 steer_phase = "idle"
 kick_hold_until = 0.0
+desired_speed = 0
+desired_steering_offset = 0
+_last_odom_ticks = None
+_last_odom_time = None
 
 pi = pigpio.pi()
 bus = smbus2.SMBus(1)
@@ -129,26 +134,58 @@ def read_odometry_ticks():
     # Left encoder has opposite sign convention.
     return (-left_ticks, right_ticks)
 
+def request_steering(steering_offset):
+    global desired_steering_offset
+    desired_steering_offset = max(-MAX_STEERING_OFFSET, min(MAX_STEERING_OFFSET, int(steering_offset)))
+
+def get_odometry():
+    global _last_odom_ticks
+    global _last_odom_time
+
+    now = time.monotonic()
+    set_robot(int(desired_speed), int(desired_steering_offset), now=now)
+
+    ticks = read_odometry_ticks()
+    if ticks is None:
+        return 0.0, 0.0, 0.0
+
+    if _last_odom_ticks is None or _last_odom_time is None:
+        _last_odom_ticks = ticks
+        _last_odom_time = now
+        return 0.0, 0.0, 0.0
+
+    dt = now - _last_odom_time
+    if dt <= 0.0:
+        return 0.0, 0.0, 0.0
+
+    dl = (ticks[0] - _last_odom_ticks[0]) / TICKS_PER_METER
+    dr = (ticks[1] - _last_odom_ticks[1]) / TICKS_PER_METER
+    v_lin = ((dl + dr) * 0.5) / dt
+
+    _last_odom_ticks = ticks
+    _last_odom_time = now
+    return dl, dr, v_lin
+
 def read_key_nonblocking():
     ready, _, _ = select.select([sys.stdin], [], [], 0)
     if not ready:
         return None
     return sys.stdin.read(1)
 
-print("\n" + "="*40)
-print(" ROBOTAXI MASTER CONTROLLER ")
-print("="*40)
-print(" [W] - Forward")
-print(" [S] - Backward")
-print(" [A] - Steer Left")
-print(" [D] - Steer Right")
-print(" [SPACE] - Emergency Stop & Center")
-print(" [Q] - Quit")
-print("="*40)
+def run_keyboard_controller():
+    global desired_speed
 
-try:
-    speed_cmd = 0
-    steering_cmd = 0
+    print("\n" + "="*40)
+    print(" ROBOTAXI MASTER CONTROLLER ")
+    print("="*40)
+    print(" [W] - Forward")
+    print(" [S] - Backward")
+    print(" [A] - Steer Left")
+    print(" [D] - Steer Right")
+    print(" [SPACE] - Emergency Stop & Center")
+    print(" [Q] - Quit")
+    print("="*40)
+
     current_speed_mps = 0.0
     distance_total_m = 0.0
     distance_net_m = 0.0
@@ -160,69 +197,72 @@ try:
     old_settings = termios.tcgetattr(fd)
     tty.setcbreak(fd)
 
-    next_tick = time.monotonic()
-    while True:
-        loop_now = time.monotonic()
-        k = read_key_nonblocking()
-        while k is not None:
-            k = k.lower()
-            if k == 'w':
-                speed_cmd = 30
-                steering_cmd = 0
-            elif k == 's':
-                speed_cmd = -30
-                steering_cmd = 0
-            elif k == 'a':
-                steering_cmd = -300
-            elif k == 'd':
-                steering_cmd = 300
-            elif k == ' ':
-                speed_cmd = 0
-                steering_cmd = 0
-            elif k == 'q':
-                raise KeyboardInterrupt
-
-            k = read_key_nonblocking()
-
-        set_robot(speed_cmd, steering_cmd, now=loop_now)
-
-        ticks = read_odometry_ticks()
-        if ticks is not None and prev_ticks is not None:
-            dt = loop_now - last_odom_time
-            if dt > 0:
-                delta_left = ticks[0] - prev_ticks[0]
-                delta_right = ticks[1] - prev_ticks[1]
-                delta_m = ((delta_left + delta_right) * 0.5) / TICKS_PER_METER
-                current_speed_mps = delta_m / dt
-                distance_net_m += delta_m
-                distance_total_m += abs(delta_m)
-
-        if ticks is not None:
-            prev_ticks = ticks
-            last_odom_time = loop_now
-
-        print(
-            f"\rCmd -> V:{speed_cmd:+4d} Steer:{steering_cmd:+4d} PWM:{current_pwm:4d} | "
-            f"Vel:{current_speed_mps:+.3f} m/s | DistNet:{distance_net_m:+.3f} m | DistTot:{distance_total_m:.3f} m   ",
-            end="",
-            flush=True,
-        )
-
-        next_tick += LOOP_PERIOD_S
-        sleep_time = next_tick - time.monotonic()
-        if sleep_time > 0:
-            time.sleep(sleep_time)
-        else:
-            next_tick = time.monotonic()
-
-except KeyboardInterrupt:
-    pass
-finally:
     try:
-        termios.tcsetattr(sys.stdin.fileno(), termios.TCSADRAIN, old_settings)
-    except Exception:
-        pass
+        next_tick = time.monotonic()
+        while True:
+            loop_now = time.monotonic()
+            k = read_key_nonblocking()
+            while k is not None:
+                k = k.lower()
+                if k == 'w':
+                    desired_speed = 30
+                    request_steering(0)
+                elif k == 's':
+                    desired_speed = -30
+                    request_steering(0)
+                elif k == 'a':
+                    request_steering(-MAX_STEERING_OFFSET)
+                elif k == 'd':
+                    request_steering(MAX_STEERING_OFFSET)
+                elif k == ' ':
+                    desired_speed = 0
+                    request_steering(0)
+                elif k == 'q':
+                    raise KeyboardInterrupt
 
-    set_robot(0, 0, now=time.monotonic())
-    pi.set_servo_pulsewidth(STEERING_PIN, 0)
-    print("\n\nSystem shutdown complete.")
+                k = read_key_nonblocking()
+
+            set_robot(desired_speed, desired_steering_offset, now=loop_now)
+
+            ticks = read_odometry_ticks()
+            if ticks is not None and prev_ticks is not None:
+                dt = loop_now - last_odom_time
+                if dt > 0:
+                    delta_left = ticks[0] - prev_ticks[0]
+                    delta_right = ticks[1] - prev_ticks[1]
+                    delta_m = ((delta_left + delta_right) * 0.5) / TICKS_PER_METER
+                    current_speed_mps = delta_m / dt
+                    distance_net_m += delta_m
+                    distance_total_m += abs(delta_m)
+
+            if ticks is not None:
+                prev_ticks = ticks
+                last_odom_time = loop_now
+
+            print(
+                f"\rCmd -> V:{desired_speed:+4d} Steer:{desired_steering_offset:+4d} PWM:{current_pwm:4d} | "
+                f"Vel:{current_speed_mps:+.3f} m/s | DistNet:{distance_net_m:+.3f} m | DistTot:{distance_total_m:.3f} m   ",
+                end="",
+                flush=True,
+            )
+
+            next_tick += LOOP_PERIOD_S
+            sleep_time = next_tick - time.monotonic()
+            if sleep_time > 0:
+                time.sleep(sleep_time)
+            else:
+                next_tick = time.monotonic()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        try:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+        except Exception:
+            pass
+
+        set_robot(0, 0, now=time.monotonic())
+        pi.set_servo_pulsewidth(STEERING_PIN, 0)
+        print("\n\nSystem shutdown complete.")
+
+if __name__ == "__main__":
+    run_keyboard_controller()

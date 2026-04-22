@@ -1,0 +1,24 @@
+[3.417s] Invoking command in '/home/pietro/ackermann_ws/src/ackermann_core': PYTHONPATH=/home/pietro/ackermann_ws/build/ackermann_core/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ackermann_core build --build-base /home/pietro/ackermann_ws/build/ackermann_core/build install --record /home/pietro/ackermann_ws/build/ackermann_core/install.log --single-version-externally-managed install_data
+[4.603s] running egg_info
+[4.708s] writing ../../build/ackermann_core/ackermann_core.egg-info/PKG-INFO
+[4.710s] writing dependency_links to ../../build/ackermann_core/ackermann_core.egg-info/dependency_links.txt
+[4.716s] writing entry points to ../../build/ackermann_core/ackermann_core.egg-info/entry_points.txt
+[4.718s] writing requirements to ../../build/ackermann_core/ackermann_core.egg-info/requires.txt
+[4.720s] writing top-level names to ../../build/ackermann_core/ackermann_core.egg-info/top_level.txt
+[4.886s] reading manifest file '../../build/ackermann_core/ackermann_core.egg-info/SOURCES.txt'
+[4.890s] writing manifest file '../../build/ackermann_core/ackermann_core.egg-info/SOURCES.txt'
+[4.891s] running build
+[4.891s] running build_py
+[4.892s] copying ackermann_core/base_node.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core
+[4.896s] running install
+[4.922s] running install_lib
+[5.006s] copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/base_node.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core
+[5.010s] byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/base_node.py to base_node.cpython-312.pyc
+[5.016s] running install_data
+[5.016s] running install_egg_info
+[5.100s] removing '/home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core-0.0.0-py3.12.egg-info' (and everything under it)
+[5.102s] Copying ../../build/ackermann_core/ackermann_core.egg-info to /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core-0.0.0-py3.12.egg-info
+[5.109s] running install_scripts
+[5.693s] Installing base_node script to /home/pietro/ackermann_ws/install/ackermann_core/lib/ackermann_core
+[5.695s] writing list of installed files to '/home/pietro/ackermann_ws/build/ackermann_core/install.log'
+[5.839s] Invoked command in '/home/pietro/ackermann_ws/src/ackermann_core' returned '0': PYTHONPATH=/home/pietro/ackermann_ws/build/ackermann_core/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ackermann_core build --build-base /home/pietro/ackermann_ws/build/ackermann_core/build install --record /home/pietro/ackermann_ws/build/ackermann_core/install.log --single-version-externally-managed install_data

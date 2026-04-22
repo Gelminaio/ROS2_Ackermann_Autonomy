@@ -1,0 +1,113 @@
+[0.000000] (-) TimerEvent: {}
+[0.003712] (ackermann_core) JobQueued: {'identifier': 'ackermann_core', 'dependencies': OrderedDict()}
+[0.006853] (ackermann_core) JobStarted: {'identifier': 'ackermann_core'}
+[0.099647] (-) TimerEvent: {}
+[0.200625] (-) TimerEvent: {}
+[0.304212] (-) TimerEvent: {}
+[0.405535] (-) TimerEvent: {}
+[0.506679] (-) TimerEvent: {}
+[0.610222] (-) TimerEvent: {}
+[0.711149] (-) TimerEvent: {}
+[0.813303] (-) TimerEvent: {}
+[0.916256] (-) TimerEvent: {}
+[1.017818] (-) TimerEvent: {}
+[1.119393] (-) TimerEvent: {}
+[1.220343] (-) TimerEvent: {}
+[1.321425] (-) TimerEvent: {}
+[1.422224] (-) TimerEvent: {}
+[1.523192] (-) TimerEvent: {}
+[1.630600] (-) TimerEvent: {}
+[1.733104] (-) TimerEvent: {}
+[1.834834] (-) TimerEvent: {}
+[1.935972] (-) TimerEvent: {}
+[2.037682] (-) TimerEvent: {}
+[2.139256] (-) TimerEvent: {}
+[2.239943] (-) TimerEvent: {}
+[2.341154] (-) TimerEvent: {}
+[2.442865] (-) TimerEvent: {}
+[2.544129] (-) TimerEvent: {}
+[2.645310] (-) TimerEvent: {}
+[2.746110] (-) TimerEvent: {}
+[2.846778] (-) TimerEvent: {}
+[2.947869] (-) TimerEvent: {}
+[3.048578] (-) TimerEvent: {}
+[3.151532] (-) TimerEvent: {}
+[3.252791] (-) TimerEvent: {}
+[3.353572] (-) TimerEvent: {}
+[3.454939] (-) TimerEvent: {}
+[3.557308] (-) TimerEvent: {}
+[3.658209] (-) TimerEvent: {}
+[3.758894] (-) TimerEvent: {}
+[3.860599] (-) TimerEvent: {}
+[3.961888] (-) TimerEvent: {}
+[4.062644] (-) TimerEvent: {}
+[4.165457] (-) TimerEvent: {}
+[4.268223] (-) TimerEvent: {}
+[4.369182] (-) TimerEvent: {}
+[4.472979] (-) TimerEvent: {}
+[4.573983] (-) TimerEvent: {}
+[4.676485] (-) TimerEvent: {}
+[4.779544] (-) TimerEvent: {}
+[4.880792] (-) TimerEvent: {}
+[4.984821] (-) TimerEvent: {}
+[5.085492] (-) TimerEvent: {}
+[5.186749] (-) TimerEvent: {}
+[5.287591] (-) TimerEvent: {}
+[5.390227] (-) TimerEvent: {}
+[5.491565] (-) TimerEvent: {}
+[5.592861] (-) TimerEvent: {}
+[5.695387] (-) TimerEvent: {}
+[5.798797] (-) TimerEvent: {}
+[5.805592] (ackermann_core) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/pietro/ackermann_ws/build/ackermann_core/build', '--no-deps', 'symlink_data'], 'cwd': '/home/pietro/ackermann_ws/build/ackermann_core', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'pietro', 'SSH_CLIENT': '192.168.1.186 48254 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'HOME': '/home/pietro', 'OLDPWD': '/home/pietro/ackermann_ws/src/ackermann_core', 'SSH_TTY': '/dev/pts/1', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/pietro/ackermann_ws/install:/home/pietro/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'pietro', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '7', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/home/pietro/ackermann_ws/install/ackermann_core:/home/pietro/ros2_ws/install/robot_taxi_bringup:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/pietro/ackermann_ws/build/ackermann_core', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.1.186 48254 192.168.1.97 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/pietro/ackermann_ws/build/ackermann_core/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages:/home/pietro/ackermann_ws/build/ackermann_core:/home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages:/home/pietro/ros2_ws/install/robot_taxi_bringup/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1'}, 'shell': False}
+[5.898947] (-) TimerEvent: {}
+[5.999609] (-) TimerEvent: {}
+[6.100255] (-) TimerEvent: {}
+[6.200895] (-) TimerEvent: {}
+[6.301521] (-) TimerEvent: {}
+[6.402146] (-) TimerEvent: {}
+[6.502705] (-) TimerEvent: {}
+[6.603329] (-) TimerEvent: {}
+[6.703902] (-) TimerEvent: {}
+[6.804537] (-) TimerEvent: {}
+[6.905131] (-) TimerEvent: {}
+[7.005680] (-) TimerEvent: {}
+[7.106298] (-) TimerEvent: {}
+[7.186908] (ackermann_core) StdoutLine: {'line': b'running develop\n'}
+[7.206442] (-) TimerEvent: {}
+[7.306993] (-) TimerEvent: {}
+[7.407591] (-) TimerEvent: {}
+[7.508155] (-) TimerEvent: {}
+[7.608728] (-) TimerEvent: {}
+[7.709328] (-) TimerEvent: {}
+[7.809906] (-) TimerEvent: {}
+[7.910780] (-) TimerEvent: {}
+[8.011485] (-) TimerEvent: {}
+[8.065243] (ackermann_core) StdoutLine: {'line': b'running egg_info\n'}
+[8.065978] (ackermann_core) StdoutLine: {'line': b'creating ackermann_core.egg-info\n'}
+[8.111634] (-) TimerEvent: {}
+[8.140207] (ackermann_core) StdoutLine: {'line': b'writing ackermann_core.egg-info/PKG-INFO\n'}
+[8.141589] (ackermann_core) StdoutLine: {'line': b'writing dependency_links to ackermann_core.egg-info/dependency_links.txt\n'}
+[8.142629] (ackermann_core) StdoutLine: {'line': b'writing entry points to ackermann_core.egg-info/entry_points.txt\n'}
+[8.143640] (ackermann_core) StdoutLine: {'line': b'writing requirements to ackermann_core.egg-info/requires.txt\n'}
+[8.145568] (ackermann_core) StdoutLine: {'line': b'writing top-level names to ackermann_core.egg-info/top_level.txt\n'}
+[8.146213] (ackermann_core) StdoutLine: {'line': b"writing manifest file 'ackermann_core.egg-info/SOURCES.txt'\n"}
+[8.211789] (-) TimerEvent: {}
+[8.303931] (ackermann_core) StdoutLine: {'line': b"reading manifest file 'ackermann_core.egg-info/SOURCES.txt'\n"}
+[8.306723] (ackermann_core) StdoutLine: {'line': b"writing manifest file 'ackermann_core.egg-info/SOURCES.txt'\n"}
+[8.311911] (-) TimerEvent: {}
+[8.386132] (ackermann_core) StdoutLine: {'line': b'running build_ext\n'}
+[8.387082] (ackermann_core) StdoutLine: {'line': b'Creating /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann-core.egg-link (link to .)\n'}
+[8.389451] (ackermann_core) StdoutLine: {'line': b'Installing base_node script to /home/pietro/ackermann_ws/install/ackermann_core/lib/ackermann_core\n'}
+[8.390965] (ackermann_core) StdoutLine: {'line': b'\n'}
+[8.391744] (ackermann_core) StdoutLine: {'line': b'Installed /home/pietro/ackermann_ws/build/ackermann_core\n'}
+[8.392390] (ackermann_core) StdoutLine: {'line': b'running symlink_data\n'}
+[8.393109] (ackermann_core) StdoutLine: {'line': b'creating /home/pietro/ackermann_ws/install/ackermann_core/share/ament_index\n'}
+[8.393741] (ackermann_core) StdoutLine: {'line': b'creating /home/pietro/ackermann_ws/install/ackermann_core/share/ament_index/resource_index\n'}
+[8.394265] (ackermann_core) StdoutLine: {'line': b'creating /home/pietro/ackermann_ws/install/ackermann_core/share/ament_index/resource_index/packages\n'}
+[8.395695] (ackermann_core) StdoutLine: {'line': b'symbolically linking /home/pietro/ackermann_ws/build/ackermann_core/resource/ackermann_core -> /home/pietro/ackermann_ws/install/ackermann_core/share/ament_index/resource_index/packages\n'}
+[8.396892] (ackermann_core) StdoutLine: {'line': b'symbolically linking /home/pietro/ackermann_ws/build/ackermann_core/package.xml -> /home/pietro/ackermann_ws/install/ackermann_core/share/ackermann_core\n'}
+[8.412200] (-) TimerEvent: {}
+[8.513170] (-) TimerEvent: {}
+[8.551468] (ackermann_core) CommandEnded: {'returncode': 0}
+[8.600317] (ackermann_core) JobEnded: {'identifier': 'ackermann_core', 'rc': 0}
+[8.602837] (-) EventReactorShutdown: {}

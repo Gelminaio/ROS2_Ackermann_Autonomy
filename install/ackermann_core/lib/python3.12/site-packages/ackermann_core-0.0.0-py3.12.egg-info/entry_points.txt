@@ -1,0 +1,2 @@
+[console_scripts]
+base_node = ackermann_core.base_node:main

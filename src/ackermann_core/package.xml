@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>ackermann_core</name>
+  <version>0.0.0</version>
+  <description>Core hardware utilities for Ackermann robot.</description>
+  <maintainer email="todo@todo.todo">TODO</maintainer>
+  <license>TODO: License declaration</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf2_ros</depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

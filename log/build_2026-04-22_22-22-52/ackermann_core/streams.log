@@ -1,0 +1,24 @@
+[5.807s] Invoking command in '/home/pietro/ackermann_ws/build/ackermann_core': PYTHONPATH=/home/pietro/ackermann_ws/build/ackermann_core/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pietro/ackermann_ws/build/ackermann_core/build --no-deps symlink_data
+[7.180s] running develop
+[8.058s] running egg_info
+[8.059s] creating ackermann_core.egg-info
+[8.133s] writing ackermann_core.egg-info/PKG-INFO
+[8.134s] writing dependency_links to ackermann_core.egg-info/dependency_links.txt
+[8.136s] writing entry points to ackermann_core.egg-info/entry_points.txt
+[8.137s] writing requirements to ackermann_core.egg-info/requires.txt
+[8.138s] writing top-level names to ackermann_core.egg-info/top_level.txt
+[8.139s] writing manifest file 'ackermann_core.egg-info/SOURCES.txt'
+[8.297s] reading manifest file 'ackermann_core.egg-info/SOURCES.txt'
+[8.300s] writing manifest file 'ackermann_core.egg-info/SOURCES.txt'
+[8.379s] running build_ext
+[8.380s] Creating /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann-core.egg-link (link to .)
+[8.382s] Installing base_node script to /home/pietro/ackermann_ws/install/ackermann_core/lib/ackermann_core
+[8.384s] 
+[8.385s] Installed /home/pietro/ackermann_ws/build/ackermann_core
+[8.385s] running symlink_data
+[8.386s] creating /home/pietro/ackermann_ws/install/ackermann_core/share/ament_index
+[8.386s] creating /home/pietro/ackermann_ws/install/ackermann_core/share/ament_index/resource_index
+[8.388s] creating /home/pietro/ackermann_ws/install/ackermann_core/share/ament_index/resource_index/packages
+[8.389s] symbolically linking /home/pietro/ackermann_ws/build/ackermann_core/resource/ackermann_core -> /home/pietro/ackermann_ws/install/ackermann_core/share/ament_index/resource_index/packages
+[8.390s] symbolically linking /home/pietro/ackermann_ws/build/ackermann_core/package.xml -> /home/pietro/ackermann_ws/install/ackermann_core/share/ackermann_core
+[8.546s] Invoked command in '/home/pietro/ackermann_ws/build/ackermann_core' returned '0': PYTHONPATH=/home/pietro/ackermann_ws/build/ackermann_core/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pietro/ackermann_ws/build/ackermann_core/build --no-deps symlink_data

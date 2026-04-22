@@ -1,0 +1,22 @@
+running egg_info
+writing ../../build/ackermann_core/ackermann_core.egg-info/PKG-INFO
+writing dependency_links to ../../build/ackermann_core/ackermann_core.egg-info/dependency_links.txt
+writing entry points to ../../build/ackermann_core/ackermann_core.egg-info/entry_points.txt
+writing requirements to ../../build/ackermann_core/ackermann_core.egg-info/requires.txt
+writing top-level names to ../../build/ackermann_core/ackermann_core.egg-info/top_level.txt
+reading manifest file '../../build/ackermann_core/ackermann_core.egg-info/SOURCES.txt'
+writing manifest file '../../build/ackermann_core/ackermann_core.egg-info/SOURCES.txt'
+running build
+running build_py
+copying ackermann_core/base_node.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core
+running install
+running install_lib
+copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/base_node.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core
+byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/base_node.py to base_node.cpython-312.pyc
+running install_data
+running install_egg_info
+removing '/home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/ackermann_core/ackermann_core.egg-info to /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core-0.0.0-py3.12.egg-info
+running install_scripts
+Installing base_node script to /home/pietro/ackermann_ws/install/ackermann_core/lib/ackermann_core
+writing list of installed files to '/home/pietro/ackermann_ws/build/ackermann_core/install.log'

@@ -1,0 +1,51 @@
+running develop
+Removing /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann-core.egg-link (link to .)
+running egg_info
+writing ../../build/ackermann_core/ackermann_core.egg-info/PKG-INFO
+writing dependency_links to ../../build/ackermann_core/ackermann_core.egg-info/dependency_links.txt
+writing entry points to ../../build/ackermann_core/ackermann_core.egg-info/entry_points.txt
+writing requirements to ../../build/ackermann_core/ackermann_core.egg-info/requires.txt
+writing top-level names to ../../build/ackermann_core/ackermann_core.egg-info/top_level.txt
+reading manifest file '../../build/ackermann_core/ackermann_core.egg-info/SOURCES.txt'
+writing manifest file '../../build/ackermann_core/ackermann_core.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/pietro/ackermann_ws/build/ackermann_core/build
+creating /home/pietro/ackermann_ws/build/ackermann_core/build/lib
+creating /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core
+copying ackermann_core/base_node.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core
+copying ackermann_core/__init__.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core
+creating /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/hardware
+copying ackermann_core/hardware/__init__.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/hardware
+copying ackermann_core/hardware/ackermann_hal.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/hardware
+creating /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/tools
+copying ackermann_core/tools/encoder_scanner.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/tools
+copying ackermann_core/tools/__init__.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/tools
+copying ackermann_core/tools/steering_calibration.py -> /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/tools
+running install
+running install_lib
+creating /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core
+creating /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/hardware
+copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/hardware/__init__.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/hardware
+copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/hardware/ackermann_hal.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/hardware
+copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/base_node.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core
+copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/__init__.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core
+creating /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/tools
+copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/tools/encoder_scanner.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/tools
+copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/tools/__init__.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/tools
+copying /home/pietro/ackermann_ws/build/ackermann_core/build/lib/ackermann_core/tools/steering_calibration.py -> /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/tools
+byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/hardware/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/hardware/ackermann_hal.py to ackermann_hal.cpython-312.pyc
+byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/base_node.py to base_node.cpython-312.pyc
+byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/tools/encoder_scanner.py to encoder_scanner.cpython-312.pyc
+byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/tools/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core/tools/steering_calibration.py to steering_calibration.cpython-312.pyc
+running install_data
+copying resource/ackermann_core -> /home/pietro/ackermann_ws/install/ackermann_core/share/ament_index/resource_index/packages
+copying package.xml -> /home/pietro/ackermann_ws/install/ackermann_core/share/ackermann_core
+running install_egg_info
+Copying ../../build/ackermann_core/ackermann_core.egg-info to /home/pietro/ackermann_ws/install/ackermann_core/lib/python3.12/site-packages/ackermann_core-0.0.0-py3.12.egg-info
+running install_scripts
+Installing base_node script to /home/pietro/ackermann_ws/install/ackermann_core/lib/ackermann_core
+writing list of installed files to '/home/pietro/ackermann_ws/build/ackermann_core/install.log'
