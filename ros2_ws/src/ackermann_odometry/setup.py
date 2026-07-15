@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'odometry_node = ackermann_odometry.odometry_node:main',
         ],
     },
 )
