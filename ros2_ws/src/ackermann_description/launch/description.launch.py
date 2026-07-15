@@ -23,5 +23,6 @@ def generate_launch_description():
             name='robot_state_publisher',
             output='screen',
             parameters=[robot_description],
+            remappings=[('joint_states', 'unused/joint_states')],
         ),
     ])
