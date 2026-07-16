@@ -48,7 +48,7 @@ This project investigates aggressive trajectory tracking at the limit of tire ad
 
 The system is organized in three computational tiers:
 
-- **ESP32 (real-time layer)** — FreeRTOS firmware running per-wheel velocity PID at 100 Hz, hardware quadrature encoder reading, BNO085 IMU acquisition, Ackermann servo control, and a safety supervisor (ARMED/DISARMED state machine, command-timeout soft-stop, per-wheel stall detection, hardware task watchdog). Exposes a micro-ROS node over USB serial publishing `/joint_states` and `/imu/data_raw`, subscribing to `/cmd_vel` (inverse Ackermann) and `/arm`.
+- **ESP32 (real-time layer)** — FreeRTOS firmware running per-wheel velocity PID at 100 Hz, hardware quadrature encoder reading, BNO085 IMU acquisition, Ackermann servo control, and a safety supervisor (ARMED/DISARMED state machine, command-timeout soft-stop, per-wheel stall detection, hardware task watchdog). Exposes a micro-ROS node over USB serial publishing `/joint_states`, `/imu/data_raw` and `/steering_angle` at 50 Hz, subscribing to `/cmd_vel` (inverse Ackermann) and `/arm`.
 - **Raspberry Pi 4 (sensor bridge)** — LIDAR and camera drivers, micro-ROS agent, wheel odometry, ROS 2 networking over WiFi.
 - **Base station (Ubuntu 24.04 desktop)** — heavy compute: dynamic NMPC solver, online friction estimator, mapping, simulation, RViz visualization.
 
@@ -112,7 +112,7 @@ drift-mpc-ackermann/
 
 ## Getting Started
 
-> 📌 **TODO**: expand with full deployment instructions as the ROS 2 stack (Phase 4+) comes online. Firmware build/flash and the micro-ROS agent workflow are functional.
+> 📌 **TODO**: expand with calibration and deployment details. Firmware, micro-ROS agent and the full sensor bringup are functional.
 
 ### Prerequisites
 
@@ -132,8 +132,16 @@ cd drift-mpc-ackermann
 docker compose -f docker/docker-compose.yml build
 
 # Flash firmware (ESP32 connected via USB)
-cd firmware && pio run --target upload
+cd firmware && pio run -e esp32dev --target upload
+
+# On the vehicle (Raspberry Pi): sensors, odometry and TF
+ros2 launch ackermann_bringup robot.launch.py
+
+# On the base station: RViz with model, scan, TF and odometry
+ros2 launch ackermann_bringup rviz.launch.py
 ```
+
+The micro-ROS agent runs as a systemd service on the Pi, see [`setup/pi/`](setup/pi/).
 
 Detailed setup, calibration, and deployment instructions: see [`docs/`](docs/).
 
@@ -146,7 +154,7 @@ The project is structured in 12 incremental phases, from physical hardware assem
 - [x] **Phase 1** — Hardware assembly & electrical integration
 - [x] **Phase 2** — Infrastructure & repository setup
 - [x] **Phase 3** — ESP32 firmware: motor drivers, PID, IMU, micro-ROS
-- [ ] **Phase 4** — ROS 2 bridge & sensor pipelines
+- [x] **Phase 4** — ROS 2 bridge & sensor pipelines
 - [ ] **Phase 5** — Dynamic modeling & system identification (nonlinear tire model)
 - [ ] **Phase 6** — State estimation (EKF) & sideslip estimation
 - [ ] **Phase 7** — Track, racing line & baseline controller
