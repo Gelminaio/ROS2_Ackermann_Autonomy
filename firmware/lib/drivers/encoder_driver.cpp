@@ -39,7 +39,7 @@ namespace drivers
         if (err != ESP_OK)
         {
             LOGLN("[encoder %s] ERROR: pcnt_unit_config failed (%d)\n",
-                          label_, err);
+                  label_, err);
             return false;
         }
 
@@ -66,8 +66,8 @@ namespace drivers
         initialized_ = true;
 
         LOGLN("[encoder %s] initialized on pins A=%d B=%d, PCNT unit %d, glitch filter %u ns\n",
-                      label_, pin_a_, pin_b_, static_cast<int>(unit_),
-                      ENCODER_GLITCH_FILTER_NS);
+              label_, pin_a_, pin_b_, static_cast<int>(unit_),
+              ENCODER_GLITCH_FILTER_NS);
         return true;
     }
 

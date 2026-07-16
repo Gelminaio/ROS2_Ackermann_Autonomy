@@ -17,7 +17,7 @@ namespace drivers
         if (!imu_.begin(i2c_address_, Wire))
         {
             LOGLN("[imu] ERROR: BNO085 not responding at 0x%02X\n",
-                          i2c_address_);
+                  i2c_address_);
             return false;
         }
 
@@ -30,9 +30,9 @@ namespace drivers
 
         initialized_ = true;
         LOGLN("[imu] BNO085 initialized at 0x%02X, reports @ %u ms (%u Hz)\n",
-                      i2c_address_,
-                      IMU_REPORT_INTERVAL_MS,
-                      1000U / IMU_REPORT_INTERVAL_MS);
+              i2c_address_,
+              IMU_REPORT_INTERVAL_MS,
+              1000U / IMU_REPORT_INTERVAL_MS);
         return true;
     }
 
