@@ -10,7 +10,7 @@ ExecStartPre=-/usr/bin/docker rm -f micro-ros-agent
 ExecStart=/usr/bin/docker run --rm --name micro-ros-agent \
   -v /dev:/dev --privileged --net=host \
   microros/micro-ros-agent:jazzy \
-  serial --dev /dev/esp32 -b 115200
+  serial --dev /dev/esp32 -b 921600
 ExecStop=/usr/bin/docker stop micro-ros-agent
 
 [Install]
