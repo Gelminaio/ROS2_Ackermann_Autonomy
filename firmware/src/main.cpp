@@ -33,7 +33,7 @@ VehicleCommand g_vehicle_command;
 // Setup: hardware bring-up + task creation, then return forever.
 void setup()
 {
-    Serial.begin(115200);
+    Serial.begin(921600);
     esp_task_wdt_init(SAFETY_TWDT_TIMEOUT_S, true);
     delay(500);
     LOGLN("\n=== Adaptive MPC Ackermann — Firmware Boot ===");
