@@ -1,0 +1,17 @@
+[Unit]
+Description=micro-ROS Agent (ESP32 over serial)
+After=docker.service
+Requires=docker.service
+
+[Service]
+Restart=always
+RestartSec=3
+ExecStartPre=-/usr/bin/docker rm -f micro-ros-agent
+ExecStart=/usr/bin/docker run --rm --name micro-ros-agent \
+  -v /dev:/dev --privileged --net=host \
+  microros/micro-ros-agent:jazzy \
+  serial --dev /dev/esp32 -b 115200
+ExecStop=/usr/bin/docker stop micro-ros-agent
+
+[Install]
+WantedBy=multi-user.target

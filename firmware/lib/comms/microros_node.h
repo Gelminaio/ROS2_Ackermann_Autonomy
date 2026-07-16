@@ -23,6 +23,7 @@ namespace comms
         void destroyEntities();
         void publishJointStates();
         void publishImu();
+        void publishSteering();
 
         bool agent_connected_ = false;
         uint32_t last_publish_ms_ = 0;

@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<robot name="ackermann_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ============================================================
+       Parameters. Lengths in meters, angles in radians.
+       Frame convention REP 103: x forward, y left, z up.
+       base_link origin: center of rear axle, at wheel-hub height.
+       Poses below are measured relative to base_link.
+       ============================================================ -->
+  <xacro:property name="wheelbase"    value="0.173"/>
+  <xacro:property name="track_width"  value="0.1745"/>
+  <xacro:property name="wheel_radius" value="0.03415"/>
+  <xacro:property name="wheel_width"  value="0.025"/>
+
+  <!-- LIDAR -->
+  <xacro:property name="lidar_x"   value="0.09225"/>
+  <xacro:property name="lidar_y"   value="0.0"/>
+  <xacro:property name="lidar_z"   value="0.125695"/>
+  <xacro:property name="lidar_yaw" value="0.0"/>   <!-- verify in RViz, Step 4.5 -->
+
+  <!-- Camera (tilted 18 deg nose-down) -->
+  <xacro:property name="camera_x"     value="0.2075"/>
+  <xacro:property name="camera_y"     value="0.0005"/>
+  <xacro:property name="camera_z"     value="0.05561"/>
+  <xacro:property name="camera_pitch" value="0.314159"/>
+
+  <!-- IMU (board rotated -90 deg about Z) -->
+  <xacro:property name="imu_x"   value="-0.00821"/>
+  <xacro:property name="imu_y"   value="-0.0225"/>
+  <xacro:property name="imu_z"   value="0.09005"/>
+  <xacro:property name="imu_yaw" value="-1.5708"/>
+
+  <material name="grey">  <color rgba="0.4 0.4 0.4 1.0"/></material>
+  <material name="black"> <color rgba="0.1 0.1 0.1 1.0"/></material>
+  <material name="blue">  <color rgba="0.1 0.3 0.8 1.0"/></material>
+  <material name="red">   <color rgba="0.8 0.1 0.1 1.0"/></material>
+  <material name="green"> <color rgba="0.1 0.7 0.2 1.0"/></material>
+
+  <!-- base_footprint: ground projection of base_link -->
+  <link name="base_footprint"/>
+
+  <joint name="base_footprint_to_base_link" type="fixed">
+    <parent link="base_footprint"/>
+    <child  link="base_link"/>
+    <origin xyz="0 0 ${wheel_radius}" rpy="0 0 0"/>
+  </joint>
+
+  <!-- base_link: vehicle body -->
+  <link name="base_link">
+    <visual>
+      <origin xyz="${wheelbase/2} 0 0.015" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.26 0.13 0.04"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <!-- Wheels (fixed; cylinder axis rotated to lie along Y) -->
+  <xacro:macro name="wheel" params="name x y">
+    <link name="${name}">
+      <visual>
+        <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+        <geometry>
+          <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+    </link>
+    <joint name="${name}_joint" type="fixed">
+      <parent link="base_link"/>
+      <child  link="${name}"/>
+      <origin xyz="${x} ${y} 0" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:wheel name="wheel_rear_left"   x="0"            y="${ track_width/2}"/>
+  <xacro:wheel name="wheel_rear_right"  x="0"            y="${-track_width/2}"/>
+  <xacro:wheel name="wheel_front_left"  x="${wheelbase}" y="${ track_width/2}"/>
+  <xacro:wheel name="wheel_front_right" x="${wheelbase}" y="${-track_width/2}"/>
+
+  <!-- LIDAR -->
+  <link name="lidar_link">
+    <visual>
+      <geometry>
+        <cylinder radius="0.035" length="0.04"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+  <joint name="lidar_joint" type="fixed">
+    <parent link="base_link"/>
+    <child  link="lidar_link"/>
+    <origin xyz="${lidar_x} ${lidar_y} ${lidar_z}" rpy="0 0 ${lidar_yaw}"/>
+  </joint>
+
+  <!-- Camera -->
+  <link name="camera_link">
+    <visual>
+      <geometry>
+        <box size="0.025 0.03 0.025"/>
+      </geometry>
+      <material name="green"/>
+    </visual>
+  </link>
+  <joint name="camera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child  link="camera_link"/>
+    <origin xyz="${camera_x} ${camera_y} ${camera_z}" rpy="0 ${camera_pitch} 0"/>
+  </joint>
+
+  <!-- IMU -->
+  <link name="imu_link">
+    <visual>
+      <geometry>
+        <box size="0.02 0.015 0.003"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child  link="imu_link"/>
+    <origin xyz="${imu_x} ${imu_y} ${imu_z}" rpy="0 0 ${imu_yaw}"/>
+  </joint>
+
+</robot>
