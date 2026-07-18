@@ -16,6 +16,7 @@
 #include <rosidl_runtime_c/string_functions.h>
 #include <std_msgs/msg/bool.h>
 #include <std_msgs/msg/float32.h>
+#include <ackermann_msgs/msg/ackermann_drive.h>
 
 #include <math.h>
 
@@ -32,6 +33,8 @@ namespace comms
     static rcl_subscription_t sub_cmdvel;
 
     static rcl_subscription_t sub_arm;
+    static rcl_subscription_t sub_drive;
+    static ackermann_msgs__msg__AckermannDrive msg_drive;
     static std_msgs__msg__Bool msg_arm;
 
     static sensor_msgs__msg__JointState msg_joint;
@@ -67,6 +70,25 @@ namespace comms
         }
         g_servo.setAngle(steering_deg);
 
+        g_vehicle_state.wheel_left.velocity_setpoint_mps = v;
+        g_vehicle_state.wheel_right.velocity_setpoint_mps = v;
+
+        g_safety.notifyCommand(millis());
+    }
+
+    static void drive_callback(const void *msgin)
+    {
+        const ackermann_msgs__msg__AckermannDrive *m =
+            static_cast<const ackermann_msgs__msg__AckermannDrive *>(msgin);
+
+        float steering_deg = m->steering_angle * 180.0f / static_cast<float>(M_PI);
+        if (steering_deg > SERVO_ANGLE_MAX_DEG)
+            steering_deg = SERVO_ANGLE_MAX_DEG;
+        if (steering_deg < SERVO_ANGLE_MIN_DEG)
+            steering_deg = SERVO_ANGLE_MIN_DEG;
+        g_servo.setAngle(steering_deg);
+
+        const float v = m->speed;
         g_vehicle_state.wheel_left.velocity_setpoint_mps = v;
         g_vehicle_state.wheel_right.velocity_setpoint_mps = v;
 
@@ -136,7 +158,13 @@ namespace comms
                 "arm")))
             return false;
 
-        if (!rcl_ok(rclc_executor_init(&executor, &support.context, 2, &allocator)))
+        if (!rcl_ok(rclc_subscription_init_default(
+                &sub_drive, &node,
+                ROSIDL_GET_MSG_TYPE_SUPPORT(ackermann_msgs, msg, AckermannDrive),
+                "drive")))
+            return false;
+
+        if (!rcl_ok(rclc_executor_init(&executor, &support.context, 3, &allocator)))
             return false;
         if (!rcl_ok(rclc_executor_add_subscription(
                 &executor, &sub_cmdvel, &msg_cmdvel,
@@ -145,6 +173,10 @@ namespace comms
         if (!rcl_ok(rclc_executor_add_subscription(
                 &executor, &sub_arm, &msg_arm,
                 &arm_callback, ON_NEW_DATA)))
+            return false;
+        if (!rcl_ok(rclc_executor_add_subscription(
+                &executor, &sub_drive, &msg_drive,
+                &drive_callback, ON_NEW_DATA)))
             return false;
 
         msg_joint.position.data = joint_positions;
@@ -169,6 +201,7 @@ namespace comms
         rclc_executor_fini(&executor);
         rcl_node_fini(&node);
         rclc_support_fini(&support);
+        rcl_subscription_fini(&sub_drive, &node);
         agent_connected_ = false;
     }
 
